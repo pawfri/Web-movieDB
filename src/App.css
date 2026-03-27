@@ -182,3 +182,10 @@
     border-right-color: var(--border);
   }
 }
+
+.Logo {
+font-family: "Papyrus";
+font-size: 64px;
+font-weight: 700;
+letter-spacing: 2px;
+}
