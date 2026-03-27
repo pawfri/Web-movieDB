@@ -18,10 +18,22 @@ const moviesApi = createApi({
             method: 'GET',
           };
         },
-      })
+      }),
+      fetchHighestRatedMovies: builder.query({
+        query: () => {
+          return {
+            url: 'discover/movie',
+            params: {
+              sort_by: 'vote_average.desc',
+              api_key: import.meta.env.VITE_TMDB_API_KEY
+            },
+            method: 'GET',
+          };
+        },
+      }),  
     };
   },
 });
 
-export const {useFetchPopularMoviesQuery} = moviesApi;
+export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery} = moviesApi;
 export { moviesApi };
