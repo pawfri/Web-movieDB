@@ -30,10 +30,22 @@ const moviesApi = createApi({
             method: 'GET',
           };
         },
-      }),  
+      }),
+      fetchSearchedMovie: builder.query({
+        query: (searchTerm) => {
+          return {
+            url: 'search/movie',
+            params: {
+              query: searchTerm,
+              api_key: import.meta.env.VITE_TMDB_API_KEY
+            },
+            method: 'GET',
+          };
+        },
+      }),
     };
   },
 });
 
-export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery} = moviesApi;
+export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery} = moviesApi;
 export { moviesApi };

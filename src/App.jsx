@@ -1,6 +1,8 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import PopularMoviesList from './components/popularMoviesList';
 import HighestRatedMoviesList from './components/highestRatedMoviesList';
+import SearchMovie from './components/searchMovie';
+import SearchedMoviesList from './components/searchedMovieList';
 import Home from './components/home';
 
 function App() {
@@ -15,12 +17,13 @@ function App() {
           </nav>
         </div>
           <span className='h1'>React Moviefinder</span>
-      <span className="d-flex justify-content-between p-0">Your localhost for what's new in movies</span>
+          <span className="d-flex justify-content-between p-0">Your localhost for what's new in movies <SearchMovie/></span>
         </div>
         <Routes>
             <Route path='/' element={<Home/>} />  
             <Route path='/popular' element={<PopularMoviesList/>} />    
             <Route path='/highest-rated' element={<HighestRatedMoviesList/>} />
+            <Route path='/searchedMovie' element={<SearchedMoviesList/>} />
         </Routes>
     </div>
   );
