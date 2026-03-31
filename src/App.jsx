@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import PopularMoviesList from './components/popularMoviesList';
 import HighestRatedMoviesList from './components/highestRatedMoviesList';
+import UpcomingMoviesList from './components/upcomingMovies';
 import SearchMovie from './components/searchMovie';
 import SearchedMoviesList from './components/searchedMovieList';
 import Home from './components/home';
@@ -14,6 +15,7 @@ function App() {
             <Link to='/' className="nav-item nav-link">Home</Link>
             <Link to='/popular' className="nav-item nav-link">Popular</Link>
             <Link to='/highest-rated' className="nav-item nav-link">Highest Rated</Link>
+            <Link to='/upcoming' className="nav-item nav-link">Upcoming</Link>
           </nav>
         </div>
           <span className='h1'>React Moviefinder</span>
@@ -23,6 +25,7 @@ function App() {
             <Route path='/' element={<Home/>} />  
             <Route path='/popular' element={<PopularMoviesList/>} />    
             <Route path='/highest-rated' element={<HighestRatedMoviesList/>} />
+            <Route path='/upcoming' element={<UpcomingMoviesList/>} />
             <Route path='/searchedMovie' element={<SearchedMoviesList/>} />
         </Routes>
     </div>

@@ -43,9 +43,20 @@ const moviesApi = createApi({
           };
         },
       }),
+      fetchUpcomingMovies: builder.query({
+        query: () => {
+          return {
+            url: 'movie/upcoming',
+            params: {
+              api_key: import.meta.env.VITE_TMDB_API_KEY
+            },
+            method: 'GET',
+          };
+        },
+      }),
     };
-  },
+  }
 });
 
-export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery} = moviesApi;
+export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery} = moviesApi;
 export { moviesApi };
