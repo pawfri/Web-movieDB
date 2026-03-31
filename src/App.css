@@ -189,3 +189,21 @@ font-size: 64px;
 font-weight: 700;
 letter-spacing: 2px;
 }
+
+.trailer-wrap {
+width: min(95vw, 1400px);
+margin: 0 auto;
+}
+
+.trailer-iframe {
+width: 100%;
+height: min(82vh, 900px);
+border: 0;
+border-radius: 8px;
+}
+
+.trailer-back-button {
+margin-bottom: 0.75rem;
+font-size: 16px;
+font-weight: 500;
+}

@@ -4,6 +4,7 @@ import HighestRatedMoviesList from './components/highestRatedMoviesList';
 import UpcomingMoviesList from './components/upcomingMovies';
 import SearchMovie from './components/searchMovie';
 import SearchedMoviesList from './components/searchedMovieList';
+import PlayMovie from './components/playMovie';
 import Home from './components/home';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path='/highest-rated' element={<HighestRatedMoviesList/>} />
             <Route path='/upcoming' element={<UpcomingMoviesList/>} />
             <Route path='/searchedMovie' element={<SearchedMoviesList/>} />
+            <Route path='/movie/:movieId' element={<PlayMovie/>} />
         </Routes>
     </div>
   );
