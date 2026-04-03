@@ -15,7 +15,7 @@ function MoviesGenre() {
 
   return (
     <div className="d-flex align-items-center">
-      <label>Genre</label>
+      <label className="filter-label">Genre</label>
       <select className="input ml-2 genre-select" value={selectedGenreId} onChange={handleGenreChange}>
         <option value="">All genres</option>
         {data?.genres?.map((genre) => (

@@ -207,3 +207,20 @@ margin-bottom: 0.75rem;
 font-size: 16px;
 font-weight: 500;
 }
+
+.genre-select {
+  height: 36px;
+  padding: 0 8px;
+}
+
+.search-field {
+  height: 36px;
+  padding: 0 8px;
+}
+
+.filter-label {
+  margin: 0;
+  line-height: 36px;
+  display: inline-flex;
+  align-items: center;
+}
