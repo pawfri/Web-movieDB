@@ -43,6 +43,17 @@ const moviesApi = createApi({
           };
         },
       }),
+      fetchNowPlayingMovies: builder.query({
+        query: () => {
+          return {
+            url: 'movie/now_playing',
+            params: {
+              api_key: import.meta.env.VITE_TMDB_API_KEY
+            },
+            method: 'GET',
+          };
+        },
+      }),
       fetchUpcomingMovies: builder.query({
         query: () => {
           return {
@@ -69,5 +80,5 @@ const moviesApi = createApi({
   }
 });
 
-export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchMovieVideoQuery} = moviesApi;
+export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchNowPlayingMoviesQuery, useFetchMovieVideoQuery} = moviesApi;
 export { moviesApi };

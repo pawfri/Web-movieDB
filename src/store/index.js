@@ -19,6 +19,6 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchMovieVideoQuery } from './apis/moviesApi';
+export { useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchNowPlayingMoviesQuery, useFetchMovieVideoQuery } from './apis/moviesApi';
 export { useGetFavoritesQuery, useAddFavoriteMutation, useRemoveFavoriteMutation } from './apis/favoritesApi';
 export { changeSearchTerm };

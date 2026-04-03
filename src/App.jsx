@@ -6,6 +6,7 @@ import SearchMovie from './components/searchMovie';
 import SearchedMoviesList from './components/searchedMovieList';
 import PlayMovie from './components/playMovie';
 import FavoriteMovies from './components/favoriteMovies';
+import NowPlayingMovies from './components/nowPlayingMovies';
 import Home from './components/home';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Link to='/popular' className="nav-item nav-link">Popular</Link>
             <Link to='/highest-rated' className="nav-item nav-link">Highest Rated</Link>
             <Link to='/upcoming' className="nav-item nav-link">Upcoming</Link>
+            <Link to='/now-playing' className="nav-item nav-link">Now Playing</Link>
             <Link to='/favorites' className="nav-item nav-link">My Favorites</Link>
           </nav>
         </div>
@@ -31,6 +33,7 @@ function App() {
             <Route path='/upcoming' element={<UpcomingMoviesList/>} />
             <Route path='/searchedMovie' element={<SearchedMoviesList/>} />
             <Route path='/movie/:movieId' element={<PlayMovie/>} />
+            <Route path='/now-playing' element={<NowPlayingMovies/>} />
             <Route path='/favorites' element={<FavoriteMovies/>} />
         </Routes>
     </div>
