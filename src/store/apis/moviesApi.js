@@ -65,6 +65,26 @@ const moviesApi = createApi({
           };
         },
       }),
+      fetchGenres: builder.query({
+        query: () => ({
+          url: 'genre/movie/list',
+          params: {
+            api_key: import.meta.env.VITE_TMDB_API_KEY
+          },
+          method: 'GET'
+        })
+      }),
+      fetchMoviesByGenre: builder.query({
+        query: (genreId) => ({
+          url: 'discover/movie',
+          params: {
+            with_genres: genreId,
+            sort_by: 'popularity.desc',
+            api_key: import.meta.env.VITE_TMDB_API_KEY
+          },
+          method: 'GET'
+        })
+      }),
       fetchMovieVideo: builder.query({
         query: (movieId) => {
           return {
@@ -80,5 +100,5 @@ const moviesApi = createApi({
   }
 });
 
-export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchNowPlayingMoviesQuery, useFetchMovieVideoQuery} = moviesApi;
+export const {useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchNowPlayingMoviesQuery, useFetchGenresQuery, useFetchMoviesByGenreQuery, useFetchMovieVideoQuery} = moviesApi;
 export { moviesApi };

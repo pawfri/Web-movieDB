@@ -4,6 +4,7 @@ import HighestRatedMoviesList from './components/highestRatedMoviesList';
 import UpcomingMoviesList from './components/upcomingMovies';
 import SearchMovie from './components/searchMovie';
 import SearchedMoviesList from './components/searchedMovieList';
+import MovieGenre from './components/moviesGenre';
 import PlayMovie from './components/playMovie';
 import FavoriteMovies from './components/favoriteMovies';
 import NowPlayingMovies from './components/nowPlayingMovies';
@@ -24,7 +25,13 @@ function App() {
           </nav>
         </div>
           <span className='h1'>React Moviefinder</span>
-          <span className="d-flex justify-content-between p-0">Your localhost for what's new in movies <SearchMovie/></span>
+          <div className="d-flex justify-content-between align-items-center p-0">
+            <span>Your localhost for what's new in movies</span>
+
+            <div className="d-flex align-items-center"><MovieGenre />
+              <div className="ml-3"><SearchMovie /></div>
+            </div>
+          </div>
         </div>
         <Routes>
             <Route path='/' element={<Home/>} />  

@@ -1,8 +1,14 @@
 import { useFetchUpcomingMoviesQuery } from "../store";
 import MovieCard from "./movieCard"
+import { useSelector } from "react-redux";
 
 function UpcomingMoviesList() {
   const {data, error, isFetching } = useFetchUpcomingMoviesQuery();
+  const selectedGenreId = useSelector((state) => state.searchMovie.selectedGenreId);
+
+  const filteredMovies = selectedGenreId 
+    ? data?.results.filter(movie => movie.genre_ids.includes(parseInt(selectedGenreId)))
+    : data?.results;  
 
 let content;
   if (isFetching) {
@@ -10,7 +16,7 @@ let content;
   } else if (error) {
     content = <div>Error loading movies.</div>;
   } else {  
-    content = data.results.filter((movie) => movie.release_date >= new Date().toISOString().split('T')[0]).sort((a, b) => a.release_date.localeCompare(b.release_date)).map((movie) => {
+    content = filteredMovies.filter((movie) => movie.release_date >= new Date().toISOString().split('T')[0]).sort((a, b) => a.release_date.localeCompare(b.release_date)).map((movie) => {
       return <MovieCard key={movie.id} movie={movie}></MovieCard>
     });
   }

@@ -19,7 +19,8 @@ function MovieCard({movie}){
                 poster_path: movie.poster_path,
                 vote_average: movie.vote_average,
                 overview: movie.overview,
-                release_date: movie.release_date
+                release_date: movie.release_date,
+                genre_ids: movie.genre_ids || []
             });
 
     return (

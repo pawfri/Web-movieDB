@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { moviesApi } from './apis/moviesApi';
 import { favoritesApi } from './apis/favoritesApi';
-import { searchMovieReducer, changeSearchTerm } from './searchedMovieSlice';
+import { searchMovieReducer, changeSearchTerm, changeSelectedGenreId } from './searchedMovieSlice';
 
 
 export const store = configureStore({
@@ -19,6 +19,6 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchNowPlayingMoviesQuery, useFetchMovieVideoQuery } from './apis/moviesApi';
+export { useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchNowPlayingMoviesQuery, useFetchGenresQuery, useFetchMoviesByGenreQuery, useFetchMovieVideoQuery } from './apis/moviesApi';
 export { useGetFavoritesQuery, useAddFavoriteMutation, useRemoveFavoriteMutation } from './apis/favoritesApi';
-export { changeSearchTerm };
+export { changeSearchTerm, changeSelectedGenreId };

@@ -1,15 +1,13 @@
 import { useFetchSearchedMovieQuery } from "../store";
 import MovieCard from "./movieCard";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 
 function SearchedMoviesList() {  
-    const dispatch = useDispatch();
-    const searchTerm = useSelector((state) => {
-        return state.searchMovie.searchTerm;
-    });
-  const {data, error, isFetching } = useFetchSearchedMovieQuery(searchTerm);
+  const searchTerm = useSelector((state) => state.searchMovie.searchTerm);
+  const selectedGenreId = useSelector((state) => state.searchMovie.selectedGenreId);
+  const { data, error, isFetching } = useFetchSearchedMovieQuery(searchTerm);
                                                                   
   let content;
   if (isFetching) {
@@ -17,10 +15,14 @@ function SearchedMoviesList() {
   } else if (error) {
     content = <div>Error loading movies.</div>;
   } else {
-    content = data.results
-        .filter(movie => movie.poster_path !== null)
-        .map((movie) => {
-      return <MovieCard key={movie.id} movie={movie}></MovieCard>
+    const filteredMovies = data.results
+      .filter((movie) => movie.poster_path !== null)
+      .filter((movie) =>
+        selectedGenreId ? movie.genre_ids?.includes(Number(selectedGenreId)) : true
+      );
+
+    content = filteredMovies.map((movie) => {
+      return <MovieCard key={movie.id} movie={movie}></MovieCard>;
     });
   }
 
