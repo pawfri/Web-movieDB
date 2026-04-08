@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { Movie, MovieResults } from '../../types/movie';
 
 const moviesApi = createApi({
   reducerPath: 'movies',
@@ -19,7 +20,8 @@ const moviesApi = createApi({
           };
         },
       }),
-      fetchHighestRatedMovies: builder.query({
+
+      fetchHighestRatedMovies: builder.query<Movie[], void>({
         query: () => {
           return {
             url: 'discover/movie',
@@ -30,7 +32,20 @@ const moviesApi = createApi({
             method: 'GET',
           };
         },
+        transformResponse: (response : MovieResults) => {
+          return response.results.map((movie) => {
+            return{
+              id: movie.id, 
+              adult: movie.adult, 
+              poster_path: movie.poster_path, 
+              overview: movie.overview, 
+              release_date: movie.release_date, 
+              title: movie.title, 
+              genres: movie.genre_ids, 
+              vote_average: movie.vote_average} as Movie;});
+        },
       }),
+
       fetchSearchedMovie: builder.query({
         query: (searchTerm) => {
           return {
