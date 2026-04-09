@@ -1,10 +1,10 @@
-import { useFetchHighestRatedMoviesQuery } from "../store";
+import { useFetchHighestRatedMoviesQuery, type RootState } from "../store";
 import MovieCard from "./movieCard"
 import { useSelector } from "react-redux";
 
 function HighestRatedMoviesList() {
   const {data, error, isFetching } = useFetchHighestRatedMoviesQuery();
-  const selectedGenreId = useSelector((state: any) => state.searchMovie.selectedGenreId);
+  const selectedGenreId = useSelector((state: RootState) => state.searchMovie.selectedGenreId);
 
   const filteredMovies = selectedGenreId 
     ? data?.filter(movie => movie.genres.includes(parseInt(selectedGenreId)))

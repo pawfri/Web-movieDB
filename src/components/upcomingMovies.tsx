@@ -1,10 +1,10 @@
-import { useFetchUpcomingMoviesQuery } from "../store";
+import { useFetchUpcomingMoviesQuery, type RootState } from "../store";
 import MovieCard from "./movieCard"
 import { useSelector } from "react-redux";
 
 function UpcomingMoviesList() {
   const {data, error, isFetching } = useFetchUpcomingMoviesQuery();
-  const selectedGenreId = useSelector((state: any) => state.searchMovie.selectedGenreId);
+  const selectedGenreId = useSelector((state: RootState) => state.searchMovie.selectedGenreId);
 
   const filteredMovies = selectedGenreId 
     ? data?.filter(movie => movie.genres.includes(parseInt(selectedGenreId)))

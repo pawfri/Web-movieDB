@@ -22,3 +22,4 @@ setupListeners(store.dispatch);
 export { useFetchPopularMoviesQuery, useFetchHighestRatedMoviesQuery, useFetchSearchedMovieQuery, useFetchUpcomingMoviesQuery, useFetchNowPlayingMoviesQuery, useFetchGenresQuery, useFetchMoviesByGenreQuery, useFetchMovieVideoQuery } from './apis/moviesApi';
 export { useGetFavoritesQuery, useAddFavoriteMutation, useRemoveFavoriteMutation } from './apis/favoritesApi';
 export { changeSearchTerm, changeSelectedGenreId };
+export type RootState = ReturnType<typeof store.getState>
